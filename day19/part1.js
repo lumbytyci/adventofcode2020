@@ -4,10 +4,8 @@ const fs = require('fs');
 let rules = {};
 
 const expandRule = (rule) => {
-    if (rules[rule] === '"a"') {
-        return 'a';
-    } else if (rules[rule] === '"b"') {
-        return 'b';
+    if (rules[rule] && rules[rule].startsWith('"')) {
+        return rules[rule].charAt(1);
     } else if (rule === '|') {
         return rule;
     }
